@@ -8,6 +8,40 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
-    oh my
+    <header class="header">library</header>
+    <main>
+      <button class="add-book">+ Add book</button>
+      <form class="form" action="/submit-form" method="POST">
+        <input
+          type="text"
+          placeholder="Title"
+          id="title"
+          name="title"
+          required
+          type="text"
+          placeholder="Author"
+          id="author"
+          name="author"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Author"
+          id="author"
+          name="author"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Pages"
+          id="pages"
+          name="pages"
+          required
+        />
+
+        <button type="button" class="submit">Submit</button>
+      </form>
+    </main>
+    <footer class="footer">Copyright © 2024 EJ-Buggs</footer>
   </body>
 </html>
