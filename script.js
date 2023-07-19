@@ -1,4 +1,6 @@
-const form = document.querySelector(".form");
+let myLibrary = [];
+let currentIndex = 1;
+const form = document.getElementById("form");
 const addBook = document.querySelector(".add-book");
 const submit = document.querySelector(".submit");
 
@@ -6,26 +8,24 @@ addBook.addEventListener("click", function () {
   form.classList.remove("form");
 });
 
-submit.addEventListener("click", function () {
-  form.classList.add("form");
-});
-
-form.addEventListener("submit", function (event) {
+function handleSubmit(event) {
   event.preventDefault();
-
   const formData = new FormData(form);
-  console.log(formData, FormData);
 
-  const userData = {};
+  form.setAttribute("data-index", currentIndex);
+  const formIndex = form.getAttribute("data-index");
+  currentIndex++;
 
-  formData.forEach(function (value, key) {
-    userData[key] = value;
+  const formDataObject = { index: formIndex, data: {} };
+  formData.forEach((value, key) => {
+    formDataObject.data[key] = value;
   });
-  console.log(userData);
-});
 
-let myLibrary = [];
+  myLibrary.push(formDataObject);
 
-function Book() {}
+  console.log(myLibrary);
+}
 
-function addBookToLibrary() {}
+form.addEventListener("submit", handleSubmit);
+
+console.log(myLibrary);
