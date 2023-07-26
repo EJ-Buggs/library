@@ -1,5 +1,7 @@
 let myLibrary = [];
 let currentIndex = 1;
+const overlay = document.querySelector(".overlay");
+const formContainer = document.querySelector(".formContainer");
 const form = document.getElementById("form");
 const addBook = document.querySelector(".add-book");
 const submit = document.querySelector(".submit");
@@ -14,7 +16,13 @@ readCheckbox.setAttribute("type", "checkbox");
 readCheckbox.classList.add("readCheckbox");
 
 addBook.addEventListener("click", function () {
-  form.classList.remove("hidden");
+  formContainer.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+});
+
+overlay.addEventListener("click", function () {
+  formContainer.classList.add("hidden");
+  overlay.classList.add("hidden");
 });
 
 function addCard() {
@@ -35,8 +43,6 @@ function addCard() {
   readBtn.classList.add("readBtn");
 
   let isChecked = readCheckbox.checked;
-  readBtn.textContent = isChecked ? "Not read" : "Read";
-  readBtn.style.backgroundColor = isChecked ? "#ff9c9c" : "#9fff9c";
 
   readBtn.addEventListener("click", function () {
     isChecked = !isChecked;
@@ -92,7 +98,8 @@ function handleSubmit(event) {
   }
   console.log(myLibrary);
 
-  form.classList.add("hidden");
+  formContainer.classList.add("hidden");
+  overlay.classList.add("hidden");
 }
 
 form.addEventListener("submit", handleSubmit);
