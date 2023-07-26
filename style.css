@@ -7,3 +7,7 @@
 .readBtn {
   background-color: #9fff9c;
 }
+
+.hidden {
+  display: none;
+}

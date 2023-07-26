@@ -11,7 +11,13 @@
     <header class="header">library</header>
     <main id="formContainer">
       <button class="add-book">+ Add book</button>
-      <form id="form" data-index="1" action="/submit-form" method="POST">
+      <form
+        id="form"
+        class="hidden"
+        data-index="1"
+        action="/submit-form"
+        method="POST"
+      >
         <input
           type="text"
           placeholder="Title"
