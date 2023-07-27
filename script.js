@@ -33,9 +33,14 @@ function addCard() {
   card.classList.add("card");
 
   const lastBook = myLibrary[myLibrary.length - 1];
-  const bookInfo = document.createElement("p");
+  const title = document.createElement("t");
+  const author = document.createElement("a");
+  const pages = document.createElement("p");
+
   if (lastBook) {
-    bookInfo.textContent = `Title: ${lastBook.data.title}, Author: ${lastBook.data.author}, Pages: ${lastBook.data.pages}`;
+    title.textContent = `'${lastBook.data.title}'`;
+    author.textContent = `${lastBook.data.author}`;
+    pages.textContent = `${lastBook.data.pages} Pages`;
   }
 
   readBtn = document.createElement(`button`);
@@ -63,7 +68,9 @@ function addCard() {
     }
   });
 
-  card.appendChild(bookInfo);
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
   card.appendChild(readBtn);
   card.appendChild(removeBtn);
   cardContainer.appendChild(card);
